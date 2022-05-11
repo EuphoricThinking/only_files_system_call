@@ -1,0 +1,10 @@
+cp ./do_getlcapid.c ~/minixDeadTest/usr/src/minix/servers/pm/do_getlcapid.c
+cp ./getlcapid.c ~/minixDeadTest/usr/src/lib/libc/misc/getlcapid.c
+cp ./incl_callnr.h ~/minixDeadTest/usr/include/minix/callnr.h
+cp ./inc_unistd.h ~/minixDeadTest/usr/include/unistd.h
+cp ./lib_makefile.in ~/minixDeadTest/usr/src/lib/libc/misc/Makefile.inc
+cp ./pm_makefile ~/minixDeadTest/usr/src/minix/servers/pm/Makefile
+cp ./proto.h ~/minixDeadTest/usr/src/minix/servers/pm/proto.h
+cp ./src_callnr.h ~/minixDeadTest/usr/src/minix/include/minix/callnr.h
+cp ./src_inc_unistd.h ~/minixDeadTest/usr/src/include/unistd.h
+cp ./table.c ~/minixDeadTest/usr/src/minix/servers/pm/table.c

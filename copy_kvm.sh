@@ -1,0 +1,10 @@
+cp ./do_getlcapid.c ~/mountKVMChanges/usr/src/minix/servers/pm/do_getlcapid.c
+cp ./getlcapid.c ~/mountKVMChanges/usr/src/lib/libc/misc/getlcapid.c
+cp ./incl_callnr.h ~/mountKVMChanges/usr/include/minix/callnr.h
+cp ./inc_unistd.h ~/mountKVMChanges/usr/include/unistd.h
+cp ./lib_makefile.in ~/mountKVMChanges/usr/src/lib/libc/misc/Makefile.inc
+cp ./pm_makefile ~/mountKVMChanges/usr/src/minix/servers/pm/Makefile
+cp ./proto.h ~/mountKVMChanges/usr/src/minix/servers/pm/proto.h
+cp ./src_callnr.h ~/mountKVMChanges/usr/src/minix/include/minix/callnr.h
+cp ./src_inc_unistd.h ~/mountKVMChanges/usr/src/include/unistd.h
+cp ./table.c ~/mountKVMChanges/usr/src/minix/servers/pm/table.c
