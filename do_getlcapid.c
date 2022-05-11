@@ -1,5 +1,5 @@
-#include "proto.h"
-#include "glo.h"
+#include "pm.h"
+#include "mproc.h"
 #include <errno.h>
 
 int find_depth(mproc* given) {
@@ -34,14 +34,14 @@ pid_t find_lca(mproc* proc1, mproc* proc2) {
 }
 
 int do_getlcapid(void) {
-	mproc* proc1 = find_proc(m_in->m1_i1);
+	mproc* proc1 = find_proc(m_in.m1_i1);
 
-	m->m1_i3 = -1;
+	m_in.m1_i3 = -1;
 	if (!proc1) {
 		return EINVAL;
 	}
 
-	mproc* proc2 = find_proc(m_in->m1_i2);
+	mproc* proc2 = find_proc(m_in.m1_i2);
 	if (!proc2) {
 		return EINVAL;
 	}
@@ -66,8 +66,8 @@ int do_getlcapid(void) {
 		shorten(proc2, depth2, depth1);
 	}
 
-	m_in->m1_i3 = find_lca(proc1, proc2);
+	m_in.m1_i3 = find_lca(proc1, proc2);
 
-	return m_in->m1_i3;
+	return m_in.m1_i3;
 }
 
