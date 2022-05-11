@@ -1,5 +1,6 @@
 #include <lib.h>
 #include <minix/rs.h>
+#include <stdio.h>
 
 int get_pm_endpt(endpoint_t *pt) {
         return minix_rs_lookup("pm", pt);
@@ -17,7 +18,8 @@ pid_t getlcapid(pid_t pid1, pid_t pid2) {
                 return -1;
         }
 
-        _syscall(pm_pt, PM_GETLCAPID, &m);
-
-	return m.m1_i3;
+//        int res = _syscall(pm_pt, PM_GETLCAPID, &m);
+//	printf("outside %d sys %d\n", m.m1_i3, res);
+//	return m.m1_i3;
+	return (_syscall(pm_pt, PM_GETLCAPID, &m));
 }

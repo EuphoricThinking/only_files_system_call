@@ -69,4 +69,3 @@ int do_getlcapid(void) {
 
 	return m_in.m1_i3;
 }
-
