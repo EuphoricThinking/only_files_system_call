@@ -37,7 +37,7 @@ pid_t find_lca(struct mproc proc1, struct mproc proc2) {
 int do_getlcapid(void) {
 	struct mproc* proc1 = find_proc(m_in.m1_i1);
 
-	m_in.m1_i3 = -1;
+//	m_in.m1_i3 = -1;
 	if (!proc1) {
 		return EINVAL;
 	}
@@ -57,10 +57,6 @@ int do_getlcapid(void) {
 		return ESRCH;
 	}
 
-//	if (proc1->mp_pid == proc2->mp_pid) {
-//		return mproc[proc1->mp_parent]->mp_pid;
-//	}
-
 	int temp;	
 	if (depth1 > depth2) {
 		temp = shorten(*proc1, depth1, depth2);
@@ -71,7 +67,7 @@ int do_getlcapid(void) {
 		proc2 = find_proc(temp);
 	}
 
-	m_in.m1_i3 = find_lca(*proc1, *proc2);
-
-	return m_in.m1_i3;
+//	m_in.m1_i3 = find_lca(*proc1, *proc2);
+	return find_lca(*proc1, *proc2);
+//	return m_in.m1_i3;
 }

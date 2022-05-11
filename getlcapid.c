@@ -18,8 +18,5 @@ pid_t getlcapid(pid_t pid1, pid_t pid2) {
                 return -1;
         }
 
-//        int res = _syscall(pm_pt, PM_GETLCAPID, &m);
-//	printf("outside %d sys %d\n", m.m1_i3, res);
-//	return m.m1_i3;
 	return (_syscall(pm_pt, PM_GETLCAPID, &m));
 }
