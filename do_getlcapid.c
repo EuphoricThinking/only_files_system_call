@@ -15,11 +15,13 @@ int find_depth(struct mproc current) {
 	return depth;
 }
 
-void shorten(struct mproc given, int given_depth, int final_depth) {
+int shorten(struct mproc given, int given_depth, int final_depth) {
 	while (given_depth > final_depth) {
 		given = mproc[given.mp_parent];
 		given_depth--;
 	}
+	
+	return given.mp_pid;
 }
 
 
@@ -59,10 +61,14 @@ int do_getlcapid(void) {
 //		return mproc[proc1->mp_parent]->mp_pid;
 //	}
 
+	int temp;	
 	if (depth1 > depth2) {
-		shorten(*proc1, depth1, depth2);
+		temp = shorten(*proc1, depth1, depth2);
+		proc1 = find_proc(temp);
+		
 	} else if (depth2 > depth1) {
-		shorten(*proc2, depth2, depth1);
+		temp = shorten(*proc2, depth2, depth1);
+		proc2 = find_proc(temp);
 	}
 
 	m_in.m1_i3 = find_lca(*proc1, *proc2);
