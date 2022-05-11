@@ -1,0 +1,10 @@
+cp ./do_getlcapid.c minixChangeCleanHolder/usr/src/minix/servers/pm/do_getlcapid.c
+cp ./getlcapid.c minixChangeCleanHolder/usr/src/lib/libc/misc/getlcapid.c
+cp ./incl_callnr.h minixChangeCleanHolder/usr/include/minix/callnr.h
+cp ./inc_unistd.h minixChangeCleanHolder/usr/include/unistd.h
+cp ./lib_makefile.in minixChangeCleanHolder/usr/src/lib/libc/misc/Makefile.inc
+cp ./pm_makefile minixChangeCleanHolder/usr/src/minix/servers/pm/Makefile
+cp ./proto.h minixChangeCleanHolder/usr/src/minix/servers/pm/proto.h
+cp ./src_callnr.h minixChangeCleanHolder/usr/src/minix/include/minix/callnr.h
+cp ./src_inc_unistd.h minixChangeCleanHolder/usr/src/include/unistd.h
+cp ./table.c minixChangeCleanHolder/usr/src/minix/servers/pm/table.c
