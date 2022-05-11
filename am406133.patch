@@ -1,6 +1,6 @@
 diff -rupNEZbB minixDeadCleanFiles/usr/include/minix/callnr.h minixDeadTest/usr/include/minix/callnr.h
 --- minixDeadCleanFiles/usr/include/minix/callnr.h	2022-05-11 16:31:17.894587496 +0200
-+++ minixDeadTest/usr/include/minix/callnr.h	2022-05-11 20:57:47.807476598 +0200
++++ minixDeadTest/usr/include/minix/callnr.h	2022-05-11 21:57:30.357804908 +0200
 @@ -58,8 +58,9 @@
  #define PM_GETEPINFO		(PM_BASE + 45)
  #define PM_GETPROCNR		(PM_BASE + 46)
@@ -14,7 +14,7 @@ diff -rupNEZbB minixDeadCleanFiles/usr/include/minix/callnr.h minixDeadTest/usr/
   *				Calls to VFS				     *
 diff -rupNEZbB minixDeadCleanFiles/usr/include/unistd.h minixDeadTest/usr/include/unistd.h
 --- minixDeadCleanFiles/usr/include/unistd.h	2022-05-11 16:31:21.250704151 +0200
-+++ minixDeadTest/usr/include/unistd.h	2022-05-11 20:57:47.807476598 +0200
++++ minixDeadTest/usr/include/unistd.h	2022-05-11 21:57:30.357804908 +0200
 @@ -143,6 +143,7 @@ int	 tcsetpgrp(int, pid_t);
  __aconst char *ttyname(int);
  int	 unlink(const char *);
@@ -25,7 +25,7 @@ diff -rupNEZbB minixDeadCleanFiles/usr/include/unistd.h minixDeadTest/usr/includ
  /*
 diff -rupNEZbB minixDeadCleanFiles/usr/src/include/unistd.h minixDeadTest/usr/src/include/unistd.h
 --- minixDeadCleanFiles/usr/src/include/unistd.h	2022-05-11 16:52:01.437234694 +0200
-+++ minixDeadTest/usr/src/include/unistd.h	2022-05-11 20:57:47.819477169 +0200
++++ minixDeadTest/usr/src/include/unistd.h	2022-05-11 21:57:30.369805193 +0200
 @@ -143,6 +143,7 @@ int	 tcsetpgrp(int, pid_t);
  __aconst char *ttyname(int);
  int	 unlink(const char *);
@@ -36,7 +36,7 @@ diff -rupNEZbB minixDeadCleanFiles/usr/src/include/unistd.h minixDeadTest/usr/sr
  /*
 diff -rupNEZbB minixDeadCleanFiles/usr/src/lib/libc/misc/getlcapid.c minixDeadTest/usr/src/lib/libc/misc/getlcapid.c
 --- minixDeadCleanFiles/usr/src/lib/libc/misc/getlcapid.c	1970-01-01 01:00:00.000000000 +0100
-+++ minixDeadTest/usr/src/lib/libc/misc/getlcapid.c	2022-05-11 20:57:47.803476408 +0200
++++ minixDeadTest/usr/src/lib/libc/misc/getlcapid.c	2022-05-11 21:57:30.353804813 +0200
 @@ -0,0 +1,23 @@
 +#include <lib.h>
 +#include <minix/rs.h>
@@ -63,7 +63,7 @@ diff -rupNEZbB minixDeadCleanFiles/usr/src/lib/libc/misc/getlcapid.c minixDeadTe
 +}
 diff -rupNEZbB minixDeadCleanFiles/usr/src/lib/libc/misc/Makefile.inc minixDeadTest/usr/src/lib/libc/misc/Makefile.inc
 --- minixDeadCleanFiles/usr/src/lib/libc/misc/Makefile.inc	2022-05-11 16:52:31.905698231 +0200
-+++ minixDeadTest/usr/src/lib/libc/misc/Makefile.inc	2022-05-11 20:57:47.811476789 +0200
++++ minixDeadTest/usr/src/lib/libc/misc/Makefile.inc	2022-05-11 21:57:30.361805002 +0200
 @@ -7,4 +7,4 @@
  SRCS+=	initfini.c
  
@@ -72,7 +72,7 @@ diff -rupNEZbB minixDeadCleanFiles/usr/src/lib/libc/misc/Makefile.inc minixDeadT
 +SRCS+=	stack_protector.c getlcapid.c
 diff -rupNEZbB minixDeadCleanFiles/usr/src/minix/include/minix/callnr.h minixDeadTest/usr/src/minix/include/minix/callnr.h
 --- minixDeadCleanFiles/usr/src/minix/include/minix/callnr.h	2022-05-11 16:55:16.104145145 +0200
-+++ minixDeadTest/usr/src/minix/include/minix/callnr.h	2022-05-11 20:57:47.819477169 +0200
++++ minixDeadTest/usr/src/minix/include/minix/callnr.h	2022-05-11 21:57:30.369805193 +0200
 @@ -58,8 +58,9 @@
  #define PM_GETEPINFO		(PM_BASE + 45)
  #define PM_GETPROCNR		(PM_BASE + 46)
@@ -86,7 +86,7 @@ diff -rupNEZbB minixDeadCleanFiles/usr/src/minix/include/minix/callnr.h minixDea
   *				Calls to VFS				     *
 diff -rupNEZbB minixDeadCleanFiles/usr/src/minix/servers/pm/do_getlcapid.c minixDeadTest/usr/src/minix/servers/pm/do_getlcapid.c
 --- minixDeadCleanFiles/usr/src/minix/servers/pm/do_getlcapid.c	1970-01-01 01:00:00.000000000 +0100
-+++ minixDeadTest/usr/src/minix/servers/pm/do_getlcapid.c	2022-05-11 20:57:47.803476408 +0200
++++ minixDeadTest/usr/src/minix/servers/pm/do_getlcapid.c	2022-05-11 21:57:30.349804719 +0200
 @@ -0,0 +1,72 @@
 +#include "pm.h"
 +#include "mproc.h"
@@ -162,7 +162,7 @@ diff -rupNEZbB minixDeadCleanFiles/usr/src/minix/servers/pm/do_getlcapid.c minix
 +
 diff -rupNEZbB minixDeadCleanFiles/usr/src/minix/servers/pm/Makefile minixDeadTest/usr/src/minix/servers/pm/Makefile
 --- minixDeadCleanFiles/usr/src/minix/servers/pm/Makefile	2022-05-11 16:55:53.324689511 +0200
-+++ minixDeadTest/usr/src/minix/servers/pm/Makefile	2022-05-11 20:57:47.811476789 +0200
++++ minixDeadTest/usr/src/minix/servers/pm/Makefile	2022-05-11 21:57:30.365805098 +0200
 @@ -4,7 +4,7 @@
  PROG=	pm
  SRCS=	main.c forkexit.c exec.c time.c alarm.c \
@@ -174,7 +174,7 @@ diff -rupNEZbB minixDeadCleanFiles/usr/src/minix/servers/pm/Makefile minixDeadTe
  LDADD+=	-lsys -ltimers
 diff -rupNEZbB minixDeadCleanFiles/usr/src/minix/servers/pm/proto.h minixDeadTest/usr/src/minix/servers/pm/proto.h
 --- minixDeadCleanFiles/usr/src/minix/servers/pm/proto.h	2022-05-11 16:55:53.472691670 +0200
-+++ minixDeadTest/usr/src/minix/servers/pm/proto.h	2022-05-11 20:57:47.815476979 +0200
++++ minixDeadTest/usr/src/minix/servers/pm/proto.h	2022-05-11 21:57:30.365805098 +0200
 @@ -89,3 +89,4 @@ struct mproc *find_proc(pid_t lpid);
  int nice_to_priority(int nice, unsigned *new_q);
  int pm_isokendpt(int ep, int *proc);
@@ -182,7 +182,7 @@ diff -rupNEZbB minixDeadCleanFiles/usr/src/minix/servers/pm/proto.h minixDeadTes
 +int do_getlcapid(void);
 diff -rupNEZbB minixDeadCleanFiles/usr/src/minix/servers/pm/table.c minixDeadTest/usr/src/minix/servers/pm/table.c
 --- minixDeadCleanFiles/usr/src/minix/servers/pm/table.c	2022-05-11 16:55:53.512692253 +0200
-+++ minixDeadTest/usr/src/minix/servers/pm/table.c	2022-05-11 20:57:47.819477169 +0200
++++ minixDeadTest/usr/src/minix/servers/pm/table.c	2022-05-11 21:57:30.373805287 +0200
 @@ -58,5 +58,6 @@ int (* const call_vec[NR_PM_CALLS])(void
  	CALL(PM_EXEC_RESTART)	= do_execrestart,
  	CALL(PM_GETEPINFO)	= do_getepinfo,		/* getepinfo(2) */
