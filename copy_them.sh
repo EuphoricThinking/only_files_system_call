@@ -4,7 +4,7 @@ cp ./incl_callnr.h ~/minixChangesCleanHolder/usr/include/minix/callnr.h
 cp ./inc_unistd.h ~/minixChangesCleanHolder/usr/include/unistd.h
 cp ./lib_makefile.in ~/minixChangesCleanHolder/usr/src/lib/libc/misc/Makefile.inc
 cp ./pm_makefile ~/minixChangesCleanHolder/usr/src/minix/servers/pm/Makefile
-cp ./proto.h ~/minixChangeCleansHolder/usr/src/minix/servers/pm/proto.h
+cp ./proto.h ~/minixChangesCleansHolder/usr/src/minix/servers/pm/proto.h
 cp ./src_callnr.h ~/minixChangesCleanHolder/usr/src/minix/include/minix/callnr.h
 cp ./src_inc_unistd.h ~/minixChangesCleanHolder/usr/src/include/unistd.h
 cp ./table.c ~/minixChangesCleanHolder/usr/src/minix/servers/pm/table.c
