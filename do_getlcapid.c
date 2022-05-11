@@ -2,9 +2,7 @@
 #include "mproc.h"
 #include <errno.h>
 
-typedef struct mproc mproc;
-
-int find_depth(mproc current) {
+int find_depth(struct mproc current) {
 	int parent = current.mp_parent;
 	int depth = 0;
 
@@ -17,7 +15,7 @@ int find_depth(mproc current) {
 	return depth;
 }
 
-void shorten(mproc given, int given_depth, int final_depth) {
+void shorten(struct mproc given, int given_depth, int final_depth) {
 	while (given_depth > final_depth) {
 		given = mproc[given.mp_parent];
 		given_depth--;
@@ -25,7 +23,7 @@ void shorten(mproc given, int given_depth, int final_depth) {
 }
 
 
-pid_t find_lca(mproc proc1, mproc proc2) {
+pid_t find_lca(struct mproc proc1, struct mproc proc2) {
 	while (mproc[proc1.mp_parent].mp_pid != mproc[proc2.mp_parent].mp_pid) {
 		proc1 = mproc[proc1.mp_parent];
 		proc2 = mproc[proc2.mp_parent];
@@ -35,14 +33,14 @@ pid_t find_lca(mproc proc1, mproc proc2) {
 }
 
 int do_getlcapid(void) {
-	mproc* proc1 = find_proc(m_in.m1_i1);
+	struct mproc* proc1 = find_proc(m_in.m1_i1);
 
-/*	m_in.m1_i3 = -1;
+	m_in.m1_i3 = -1;
 	if (!proc1) {
 		return EINVAL;
 	}
 
-	mproc* proc2 = find_proc(m_in.m1_i2);
+	struct mproc* proc2 = find_proc(m_in.m1_i2);
 	if (!proc2) {
 		return EINVAL;
 	}
@@ -54,7 +52,7 @@ int do_getlcapid(void) {
 
 	int depth2 = find_depth(*proc2);
 	if (depth2 == 0) {
-		return ESCHR;
+		return ESRCH;
 	}
 
 //	if (proc1->mp_pid == proc2->mp_pid) {
@@ -62,12 +60,12 @@ int do_getlcapid(void) {
 //	}
 
 	if (depth1 > depth2) {
-		shorten(proc1, depth1, depth2);
+		shorten(*proc1, depth1, depth2);
 	} else if (depth2 > depth1) {
-		shorten(proc2, depth2, depth1);
+		shorten(*proc2, depth2, depth1);
 	}
 
-	m_in.m1_i3 = find_lca(*proc1, *proc2); */
+	m_in.m1_i3 = find_lca(*proc1, *proc2);
 
 	return m_in.m1_i3;
 }
